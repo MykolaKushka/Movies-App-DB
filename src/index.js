@@ -10,12 +10,17 @@ const movie = {
     "«Ме́сники: Війна́ Нескінче́нності» — американський супергеройський фільм, знятий братами Руссо за мотивами коміксів про однойменну команду видавництва Marvel. Він є продовженням фільмів кінематографічного всесвіту Marvel. Також він є продовженням фільмів «Месники» та « Ера Альтрона»"
 };
 
+function Image(props) {
+  return <img src={props.src} alt={props.title} />;
+}
+
 function MovieItem(props) {
   const {
-    data: { title, vote_avetage }
+    data: { title, vote_avetage, image }
   } = props;
   return (
     <div>
+      <Image src={image} alt={title} />
       <p>{title}</p>
       <p>{vote_avetage}</p>
     </div>
