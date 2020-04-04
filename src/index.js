@@ -14,17 +14,33 @@ function Image(props) {
   return <img src={props.src} alt={props.title} />;
 }
 
-function MovieItem(props) {
-  const {
-    data: { title, vote_avetage, image }
-  } = props;
-  return (
-    <div>
-      <Image src={image} alt={title} />
-      <p>{title}</p>
-      <p>{vote_avetage}</p>
-    </div>
-  );
+// function MovieItem(props) {
+//   const {
+//     data: { title, vote_avetage, image }
+//   } = props;
+//   return (
+//     <div>
+//       <Image src={image} alt={title} />
+//       <p>{title}</p>
+//       <p>{vote_avetage}</p>
+//     </div>
+//   );
+// }
+
+// MovieItem = new React.Component()
+class MovieItem extends React.Component {
+  render() {
+    const {
+      data: { title, vote_avetage, image }
+    } = this.props;
+    return (
+      <div>
+        <Image src={image} alt={title} />
+        <p>{title}</p>
+        <p>{vote_avetage}</p>
+      </div>
+    );
+  }
 }
 
 function App() {
