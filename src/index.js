@@ -2,12 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 const movie = {
-  title: "Месники",
+  title: "The Avengers",
   vote_avetage: 8.5,
   image:
-    "https://i2.wp.com/itc.ua/wp-content/uploads/2018/04/Avengers_Infinity_War_i00.jpg?fit=770%2C546&quality=100&strip=all&ssl=1",
+    "https://specials-images.forbesimg.com/imageserve/5cc0c243a7ea436c70f3ba2f/960x0.jpg?fit=scale",
   overview:
-    "«Ме́сники: Війна́ Нескінче́нності» — американський супергеройський фільм, знятий братами Руссо за мотивами коміксів про однойменну команду видавництва Marvel. Він є продовженням фільмів кінематографічного всесвіту Marvel. Також він є продовженням фільмів «Месники» та « Ера Альтрона»"
+    "The film's development began when Marvel Studios received a loan from Merrill Lynch in April 2005. After the success of the film Iron Man in May 2008, Marvel announced that The Avengers would be released in July 2011. With the signing of Johansson in March 2009, the film was pushed back for a 2012 release. Whedon was brought on board in April 2010 and rewrote the original screenplay by Zak Penn. Production began in April 2011 in Albuquerque, New Mexico, before moving to Cleveland, Ohio, in August and New York City in September. The film was converted to 3D in post-production."
 };
 
 function Image(props) {
@@ -29,15 +29,34 @@ function Image(props) {
 
 // MovieItem = new React.Component()
 class MovieItem extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
+      show: false
+    };
+  }
+
   render() {
     const {
-      data: { title, vote_avetage, image }
+      data: { title, vote_avetage, image, overview }
     } = this.props;
     return (
       <div>
         <Image src={image} alt={title} />
         <p>{title}</p>
         <p>{vote_avetage}</p>
+        <button
+          type="button"
+          onClick={() => {
+            this.setState({
+              show: true
+            });
+          }}
+        >
+          show
+        </button>
+        {this.state.show ? <p>{overview}</p> : null}
       </div>
     );
   }
