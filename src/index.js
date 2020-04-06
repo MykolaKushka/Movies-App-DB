@@ -50,11 +50,11 @@ class MovieItem extends React.Component {
           type="button"
           onClick={() => {
             this.setState({
-              show: true
+              show: !this.state.show
             });
           }}
         >
-          show
+          {this.state.show ? "hide" : "show"}
         </button>
         {this.state.show ? <p>{overview}</p> : null}
       </div>
