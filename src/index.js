@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import "./styles.css";
 
 const movie = {
   title: "The Avengers",
@@ -66,7 +67,7 @@ class MovieItem extends React.Component {
           <button
             type="button"
             onClick={this.handleLike}
-            style={{ background: this.state.like ? "blue" : "white" }}
+            className={this.state.like ? "btn--like" : ""}
           >
             Like
           </button>
