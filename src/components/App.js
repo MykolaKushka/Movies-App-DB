@@ -23,16 +23,23 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        {this.state.movies.map(movie => {
-          return (
-            <MovieItem
-              key={movie.id}
-              movie={movie}
-              removeMovie={this.removeMovie}
-            />
-          );
-        })}
+      <div className="container">
+        <div className="row">
+          <div className="col-9">
+            {this.state.movies.map(movie => {
+              return (
+                <MovieItem
+                  key={movie.id}
+                  movie={movie}
+                  removeMovie={this.removeMovie}
+                />
+              );
+            })}
+          </div>
+          <div className="col-3">
+            <p>Will watch: 0</p>
+          </div>
+        </div>
       </div>
     );
   }
