@@ -1,7 +1,7 @@
 {
-  "name": "react-app-in-10-days",
+  "name": "movies-app",
   "version": "1.0.0",
-  "description": "",
+  "description": "React App in 10 days",
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
