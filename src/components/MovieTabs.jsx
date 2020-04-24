@@ -1,39 +1,53 @@
-import React from "react"
+import React from "react";
 
-const MovieTabs = (props) => {
-  const { sort_by, updateSortBy } = props;
-  const handleClick = value => () => {
+class MovieTabs extends React.Component {
+  shouldComponentUpdate(nextProps, nextState) {
+    if (nextProps.sort_by !== this.props.sort_by) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  render() {
+    const { sort_by, updateSortBy } = this.props;
+    const handleClick = value => () => {
       updateSortBy(value);
-  }
+    };
 
-  const getCLassLink = value => {
-    return `nav-link ${sort_by === value ? "active" : ""}`
-  }
+    const getCLassLink = value => {
+      return `nav-link ${sort_by === value ? "active" : ""}`;
+    };
 
-  return(
-    <ul className="tabs nav nav-pills">
-      <li className="nav-item">
-        <div className={getCLassLink("popularity.desc")} 
-        onClick={handleClick("popularity.desc")}>
-          Popularity desc
-        </div>
-      </li>
-      <li className="nav-item">
-        <div className={getCLassLink("revenue.desc")}
-        onClick={handleClick("revenue.desc")
-        }>
-          Revenue desc
-        </div>
-      </li>
-      <li className="nav-item">
-        <div className={getCLassLink("vote_average.desc")} 
-        onClick={handleClick("vote_average.desc")
-        }>
-          Vote average desc
-        </div>
-      </li>
-    </ul>
-  )
+    return (
+      <ul className="tabs nav nav-pills">
+        <li className="nav-item">
+          <div
+            className={getCLassLink("popularity.desc")}
+            onClick={handleClick("popularity.desc")}
+          >
+            Popularity desc
+          </div>
+        </li>
+        <li className="nav-item">
+          <div
+            className={getCLassLink("revenue.desc")}
+            onClick={handleClick("revenue.desc")}
+          >
+            Revenue desc
+          </div>
+        </li>
+        <li className="nav-item">
+          <div
+            className={getCLassLink("vote_average.desc")}
+            onClick={handleClick("vote_average.desc")}
+          >
+            Vote average desc
+          </div>
+        </li>
+      </ul>
+    );
+  }
 }
 
-export default MovieTabs
+export default MovieTabs;
