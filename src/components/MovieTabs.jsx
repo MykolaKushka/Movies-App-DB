@@ -1,4 +1,5 @@
 import React from "react";
+import classNames from 'classnames/bind';
 
 class MovieTabs extends React.Component {
   shouldComponentUpdate(nextProps, nextState) {
@@ -16,8 +17,15 @@ class MovieTabs extends React.Component {
     };
 
     const getCLassLink = value => {
-      return `nav-link ${sort_by === value ? "active" : ""}`;
+      let tabClass = classNames({
+        'nav-link' : true, 
+        'active' : sort_by === value
+      })
+      
+      return tabClass;
     };
+
+
 
     return (
       <ul className="tabs nav nav-pills">
