@@ -20,3 +20,7 @@ During this course was working with:
 https://zovr9.csb.app/<br/>
 https://codesandbox.io/s/movies-app-zovr9
 </p>
+
+<p>
+Based on course https://reactwarriors.teachable.com/courses/749153/ 
+</p>
